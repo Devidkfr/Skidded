@@ -131,7 +131,7 @@ end
 
 library.WindowCount = 0
 
-local Key = "SKIDDEDV1 | .gg/..." -- You can change it wont break.
+local Key = "TRASHV1 | .gg/..." -- You can change it wont break.
 
 library.Array = {}
 library.Array.Background = true
@@ -1081,7 +1081,7 @@ ImageESPStyle = ImageESP.NewPicker({
 local infFlyPart
 InfiniteFly = Motion.NewButton({
 	Name = "InfiniteFly",
-    Keybind = Enum.KeyCode.H,
+    Keybind = Enum.KeyCode.Q,
 	Function = function(callback)
 		if callback then
 			infFlyPart = Instance.new("Part",workspace)
@@ -4220,7 +4220,7 @@ TextLabel.BorderSizePixel = 0
 TextLabel.Position = UDim2.new(0, 0, -0.555555582, 0)
 TextLabel.Size = UDim2.new(0, 314, 0, 54)
 TextLabel.Font = Enum.Font.Bangers
-TextLabel.Text = "SkiddedLeakV1"
+TextLabel.Text = "TrashClientV1"
 TextLabel.TextColor3 = Color3.fromRGB(0, 255, 17)
 TextLabel.TextScaled = true
 TextLabel.TextSize = 14.000
