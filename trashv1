@@ -1,4 +1,4 @@
-repeat task.wait() until game:IsLoaded()
+frepeat task.wait() until game:IsLoaded()
 
 local library = {}
 local spawnConnections = {}
@@ -1778,7 +1778,7 @@ AutoPot = Player.NewButton({
 	end
 })
 
-local msgs = {".gg/aetherclient Get AetherClient Now!","Even without AetherClient i wouldve still won.","AetherClient On Top⭐","Imagine being legit in 2024","Get AetherClient to win lol!",".gg/aetherclient to become good"}
+local msgs = {".gg/trashv1 Get Trashv1 Never!","Even without TrashV1 i wouldve still won.","Trashv1 On Top⭐","No Trashv1 in 2024?","Get TrashV1 to win lol!",".gg/... to become good"}
 Chatspammer = Misc.NewButton({
 	Name = "Chatspammer",
 	Function = function(callback)
@@ -1806,8 +1806,8 @@ Skybox = Visuals.NewButton({
 		if callback then
 			task.wait(1)
 			local assetId = ""
-			if SkyboxStyle.Option == "Sus" then
-				assetId = "http://www.roblox.com/asset/?id=9145833727"
+			if SkyboxStyle.Option == "Trash" then
+				assetId = "http://www.roblox.com/asset/?id=15430324604"
 			end
 
 			if SkyboxStyle.Option == "Damc" then
@@ -1859,7 +1859,7 @@ Skybox = Visuals.NewButton({
 
 SkyboxStyle = Skybox.NewPicker({
 	Name = "Style",
-	Options = {"Sus", "Springs","Damc", "Xylex","Alsploit","Matrix","Covid","Space","Windows","Trol","Cat","Furry"}
+	Options = {"Trash", "Springs","Damc", "Xylex","Alsploit","Matrix","Covid","Space","Windows","Trol","Cat","Furry"}
 })
 
 
