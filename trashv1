@@ -1,5 +1,4 @@
-Print("Loading")
-frepeat task.wait() until game:IsLoaded()
+repeat task.wait() until game:IsLoaded()
 
 local library = {}
 local spawnConnections = {}
@@ -132,7 +131,7 @@ end
 
 library.WindowCount = 0
 
-local Key = "TRASHV1 | .gg/..." -- You can change it wont break.
+local Key = "Trashv1 | .gg/..." --DONT CHANGE OR SCRIPT WILL BREAK
 
 library.Array = {}
 library.Array.Background = true
@@ -850,7 +849,7 @@ Killaura = Combat.NewButton({
 
 				if nearest ~= nil then
 					if DragonAnimation.Enabled then
-				 game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.DragonBreath:FireServer("")
+						game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.DragonBreath:FireServer("")
 					end
 					local nearestCharacter = nearest.Character
 					local nearestPrimaryPartPosition = nearestCharacter.PrimaryPart.Position
@@ -886,7 +885,7 @@ Killaura = Combat.NewButton({
 			end)
 
 			task.spawn(function()
-				repeat task.wait()
+				repeat task.wait(0)
 					if getNearestPlayer(22) ~= nil then
 						pcall(function()
 							local animation = auraAnimations[auraAnimation.Option]
@@ -956,7 +955,7 @@ Killaura = Combat.NewButton({
 								targetInfo.Position = UDim2.fromScale(0.6,0.5)
 								targetInfo.TextColor3 = Color3.fromRGB(255,255,255)
 								targetInfo.Text = "  "..nearest.DisplayName
-								targetInfo.TextScaled = true
+								--targetInfo.TextScaled = true
 								targetInfo.TextXAlignment = Enum.TextXAlignment.Left
 							end)	
 						end
@@ -998,16 +997,7 @@ ToolCheck = Killaura.NewToggle({
 	Name = "ToolCheck",
 	Function = function() end
 })
-DragonAnimation = Killaura.NewToggle({
-Name = "DragonAnimation", 
-Function = function() end
-})
-
-
-table.insert(spawnConnections,function(char)
-	task.wait(1)
-	viewmodel = workspace.Camera.Viewmodel.RightHand.RightWrist
-end)
+DragonAnimation = Killaura.NewToggle({Name = "DragonAnimation", Function = function() end})
 
 table.insert(spawnConnections,function(char)
 	task.wait(1)
@@ -1082,7 +1072,7 @@ ImageESPStyle = ImageESP.NewPicker({
 local infFlyPart
 InfiniteFly = Motion.NewButton({
 	Name = "InfiniteFly",
-    Keybind = Enum.KeyCode.Q,
+    Keybind = Enum.KeyCode.H,
 	Function = function(callback)
 		if callback then
 			infFlyPart = Instance.new("Part",workspace)
@@ -1299,7 +1289,7 @@ HUDScreen.ResetOnSpawn = false
 local HUDS = {}
 
 HUDS[1] = function()
-	local text = "Aether V1.0"
+	local text = "Trash V2.0"
 	local id = "http://www.roblox.com/asset/?id=7498352732"
 	local lplr = game.Players.LocalPlayer
 	label = Instance.new("TextLabel",HUDScreen)
@@ -1321,7 +1311,7 @@ HUDS[1] = function()
 	glow.ZIndex = -10
 end
 HUDS[2] = function()
-	local text = "Aether"
+	local text = "Trash V2"
 
 	frame = Instance.new("TextLabel",HUDScreen)
 	frame.Size = UDim2.fromScale(0.17,0.04)
@@ -4195,52 +4185,184 @@ FakeLag = Legit.NewButton({
 		end
 	end,
 })
-local ScreenGui = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local TextLabel = Instance.new("TextLabel")
-local TextLabel_2 = Instance.new("TextLabel")
 
---Properties:
+local function FpsBoost()
+	for i, v in next, CollectionService:GetTagged("block") do
+			v.Material = Enum.Material.SmoothPlastic
+			for i2, v2 in next, (v:GetDescendants()) do
+				if v2:IsA("BasePart") then
+					v2.Material = Enum.Material.SmoothPlastic
+				end
+			end
+	end
+end
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+FPS = Misc.NewButton({
+	Name = "FpsBooster",
+	Function = function(callback)
+		if callback then
+            FpsBoost()
+		end
+	end,
+})
 
-Frame.Parent = ScreenGui
-Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Frame.BackgroundTransparency = 1.000
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0, 0, 0.573201001, 0)
-Frame.Size = UDim2.new(0, 314, 0, 54)
+local DecalId = 13528140280
 
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0, 0, -0.555555582, 0)
-TextLabel.Size = UDim2.new(0, 314, 0, 54)
-TextLabel.Font = Enum.Font.Bangers
-TextLabel.Text = "TrashClientV1"
-TextLabel.TextColor3 = Color3.fromRGB(0, 255, 17)
-TextLabel.TextScaled = true
-TextLabel.TextSize = 14.000
-TextLabel.TextWrapped = true
+local function CreateCape(DecalId)
+	local Cape = Instance.new("Part")
 
-TextLabel_2.Parent = ScreenGui
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel_2.BorderSizePixel = 0
-TextLabel_2.Position = UDim2.new(0, 0, 0.602977693, 0)
-TextLabel_2.Size = UDim2.new(0, 200, 0, 50)
-TextLabel_2.Font = Enum.Font.FredokaOne
-TextLabel_2.Text = "Nothing was changed Thx Aether Client"
-TextLabel_2.TextColor3 = Color3.fromRGB(241, 192, 77)
-TextLabel_2.TextScaled = true
-TextLabel_2.TextSize = 14.000
-TextLabel_2.TextWrapped = true
-Print("Fucking shit guys!")
+	Cape.Parent = LocalPlayer.Character
+	Cape.Name = "Cape"
+	Cape.Size = Vector3.new(0.2, 0.2, 0.08)
+	Cape.Material = Enum.Material.SmoothPlastic
+	Cape.Color = Color3.new(0.105882, 0.105882, 0.105882)
+	Cape.CanCollide = false
+
+	local BlockMesh = Instance.new("BlockMesh")
+
+	BlockMesh.Parent = Cape
+	BlockMesh.Name = "Mesh"
+	BlockMesh.Scale = Vector3.new(9, 17.5, 0.5)
+	BlockMesh.VertexColor = Vector3.new(1, 1, 1)
+
+	local Motor = Instance.new("Motor")
+
+	Motor.Parent = Cape
+	Motor.Name = "Motor"
+	Motor.C0 = CFrame.new(0, 2, 0, -4.37113883e-08, 0, 1, 0, 1, 0, -1, 0, -4.37113883e-08)
+	Motor.C1 = CFrame.new(0, 1, 0.449999988, -4.37113883e-08, 0, 1, 0, 1, 0, -1, 0, -4.37113883e-08)
+	Motor.Part1 = LocalPlayer.Character.UpperTorso
+	Motor.Part0 = Cape
+	Motor.CurrentAngle = -0.16208772361278534
+	Motor.DesiredAngle = -0.1002269834280014
+
+	local Decal = Instance.new("Decal")
+
+	Decal.Parent = Cape
+	Decal.Name = "Decal"
+	Decal.Face = Enum.NormalId.Back
+	Decal.Texture = DecalId
+end
+
+CAPES = Visuals.NewButton({
+	Name = "Cape",
+	Function = function(callback)
+		if callback then
+			if IsAlive(LocalPlayer) and not LocalPlayer.Character:FindFirstChild("Cape") then
+				CreateCape("rbxassetid://" .. DecalId)
+			end
+            else 
+            if IsAlive(LocalPlayer) and LocalPlayer.Character:FindFirstChild("Cape") then
+					LocalPlayer.Character.Cape:Destroy()
+			end	
+		end
+	end,
+})
+
+task.spawn(function()
+			repeat
+				task.wait()
+
+				if IsAlive(LocalPlayer) then
+					if LocalPlayer.Character:FindFirstChild("Cape") and LocalPlayer.Character:FindFirstChild("Cape"):FindFirstChild("Motor") then
+						local TweenInformation = TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In, 0, false, 0)
+						local CapeTween = TweenService:Create(LocalPlayer.Character.Cape.Motor, TweenInformation, {CurrentAngle = (IsMoving() and -0.6 or -0.2)})
+
+						CapeTween:Play()
+					end			
+				end		
+			until not CAPES.Enabled		
+		end)
+
+
+LocalPlayer.CharacterAdded:Connect(function()
+				task.wait(0.3)
+				
+	if CAPES.Enabled then
+		if IsAlive(LocalPlayer) and not LocalPlayer.Character:FindFirstChild("Cape") then
+			CreateCape("rbxassetid://" .. DecalId)
+		end
+	end						
+end)
+
+local function GetEquippedKit()
+	if ClientGotten == true then
+		return ClientHandlerStore:getState().Bedwars.kit
+	end
+
+	if ClientGotten == false then
+		return nil
+	end
+end
+
+local DestroyPetrifiedPlayerRemote = ReplicatedStorage:WaitForChild("rbxts_include"):WaitForChild("node_modules"):WaitForChild("@rbxts"):WaitForChild("net"):WaitForChild("out"):WaitForChild("_NetManaged"):WaitForChild("DestroyPetrifiedPlayer")
+local HannahPromptTriggerRemote = nil
+local TrinitySetAngelTypeRemote = ReplicatedStorage:WaitForChild("rbxts_include"):WaitForChild("node_modules"):WaitForChild("@rbxts"):WaitForChild("net"):WaitForChild("out"):WaitForChild("_NetManaged"):WaitForChild("SetAngelType")
+
+
+task.spawn(function()
+	if ClientGotten then
+		HannahPromptTriggerRemote = Client:Get("HannahPromptTrigger")
+	end	
+end)
+
+local function FindPetrifiedPlayer()
+	for i, v in next, WorkSpace:GetChildren() do		
+		if v:GetAttribute("PetrifyId") then
+			return v
+		end
+	end
+end
+
+local function AutoKit()
+	local PetrifiedPlayer = FindPetrifiedPlayer()
+	local NearestPlayer = getNearestPlayer(999999999)
+	local EquippedKit = GetEquippedKit()
+	
+	task.spawn(function()
+		if NearestPlayer then
+			if EquippedKit == "hannah" or nil then
+				HannahPromptTriggerRemote:CallServer({victimEntity = NearestPlayer.Character, ["user"] = LocalPlayer})
+			end
+		end
+	end)
+
+
+	task.spawn(function()
+		if PetrifiedPlayer then
+			if EquippedKit == "miner" or nil then
+				DestroyPetrifiedPlayerRemote:FireServer({petrifyId = PetrifiedPlayer:GetAttribute("PetrifyId")})
+			end
+		end
+	end)
+
+	task.spawn(function()
+		if EquippedKit == "angel" or nil then
+			TrinitySetAngelTypeRemote:FireServer({angel = "Void"})
+		end
+	end)
+end
+
+function RecallPlayer()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "C" , false , game)
+    
+    task.wait(6.3)     
+    
+    RecallPlayerTweenToNearestPlayer()
+end
+
+
+AutoKit = Player.NewButton({
+	Name = "AutoKit",
+	Function = function(callback)
+		if callback then
+			repeat
+			AutoKit()
+			task.wait(.1)
+			until not AutoKit.Enabled
+		end
+	end,
+})
 if IY_LOADED and not _G.IY_DEBUG == true then
     -- error("Infinite Yield is already running!", 0)
     return
@@ -16871,4 +16993,3 @@ task.spawn(function()
 	minimizeHolder()
 	if IsOnMobile then notify("Unstable Device", "On mobile, Infinite Yield may have issues or features that are not functioning correctly.") end
 end)
-print("Thanks for using TrashClientv1 witch has inf yield so yeah, work on this if you want its open source remember!")
